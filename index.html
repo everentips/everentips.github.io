@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everentips — REAPER Scripts & Workflow Tools by Sourbotrithy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        daw: {
+                            bg: '#121214',
+                            card: '#18181c',
+                            border: '#2a2a32',
+                            accent: '#3b82f6',
+                            hover: '#2563eb',
+                            text: '#f3f4f6',
+                            muted: '#9ca3af'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-daw-bg text-daw-text font-sans antialiased selection:bg-daw-accent selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="border-b border-daw-border bg-daw-bg/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                    <i class="fa-solid fa-sliders text-white"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg tracking-tight leading-none">Everentips</span>
+                    <span class="text-[11px] text-daw-muted tracking-wide mt-0.5">by Sourbotrithy</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6 text-sm text-daw-muted">
+                <a href="#scripts" class="hover:text-daw-text transition">Scripts</a>
+                <a href="#docs" class="hover:text-daw-text transition">Installation</a>
+                <a href="https://github.com/Everentips" target="_blank" class="hover:text-daw-text transition"><i class="fa-brands fa-github text-base"></i> GitHub</a>
+            </nav>
+            <div>
+                <a href="#scripts" class="bg-daw-accent hover:bg-daw-hover text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm transition">
+                    Get Scripts
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 px-6 text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center space-x-2 bg-daw-card border border-daw-border px-3.5 py-1.5 rounded-full text-xs text-daw-muted mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Everentips • Developed by <strong class="text-daw-text font-medium">Sourbotrithy</strong></span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            Supercharge Your REAPER Workflow
+        </h1>
+        <p class="text-lg md:text-xl text-daw-muted mb-10 max-w-2xl mx-auto leading-relaxed">
+            Custom REAPER scripts, ImGui tools, and workflow tips crafted to speed up music production and editing. Free to download with optional support.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#scripts" class="w-full sm:w-auto bg-daw-accent hover:bg-daw-hover text-white font-medium px-8 py-3 rounded-xl shadow-lg shadow-blue-500/20 transition text-center">
+                Explore Scripts
+            </a>
+            <a href="#docs" class="w-full sm:w-auto bg-daw-card hover:bg-daw-border border border-daw-border font-medium px-8 py-3 rounded-xl transition text-center">
+                View Instructions
+            </a>
+        </div>
+    </section>
+
+    <!-- Scripts Grid Section -->
+    <section id="scripts" class="py-16 px-6 max-w-6xl mx-auto border-t border-daw-border/50">
+        <div class="flex items-center justify-between mb-10">
+            <div>
+                <h2 class="text-2xl font-bold tracking-tight">Featured Scripts</h2>
+                <p class="text-sm text-daw-muted mt-1">Compiled securely as <code>.luac</code> bytecode for fast, reliable execution in REAPER.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Script Card 1 -->
+            <div class="bg-daw-card border border-daw-border rounded-2xl overflow-hidden flex flex-col justify-between hover:border-daw-accent/50 transition duration-300">
+                <div>
+                    <div class="h-48 bg-gradient-to-br from-gray-900 to-gray-950 border-b border-daw-border p-4 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition"></div>
+                        <div class="flex justify-between items-center z-10">
+                            <span class="text-xs font-mono bg-blue-500/10 text-blue-400 px-2.5 py-1 rounded-md border border-blue-500/20">ImGui Tool</span>
+                            <span class="text-xs text-daw-muted font-mono">v1.0.0</span>
+                        </div>
+                        <div class="z-10 text-center my-auto">
+                            <i class="fa-solid fa-sliders text-3xl text-daw-accent mb-2"></i>
+                            <p class="text-xs text-daw-muted font-mono">Interactive DAW Workflow Interface</p>
+                        </div>
+                        <div class="z-10 flex justify-between text-[10px] text-daw-muted font-mono">
+                            <span>REAPER 7.0+</span>
+                            <span>Lua Bytecode (.luac)</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Channel Rack & Workflow Panel</h3>
+                        <p class="text-sm text-daw-muted leading-relaxed mb-4">
+                            A streamlined custom ImGui control panel designed to manage tracks, routing, and shortcut triggers rapidly inside REAPER.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 flex items-center justify-between border-t border-daw-border/40 mt-4">
+                    <span class="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">Pay What You Want ($0+)</span>
+                    <a href="#" class="bg-daw-accent hover:bg-daw-hover text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm">
+                        Get Script <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Script Card 2 -->
+            <div class="bg-daw-card border border-daw-border rounded-2xl overflow-hidden flex flex-col justify-between hover:border-daw-accent/50 transition duration-300">
+                <div>
+                    <div class="h-48 bg-gradient-to-br from-gray-900 to-gray-950 border-b border-daw-border p-4 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-indigo-500/5 opacity-0 group-hover:opacity-100 transition"></div>
+                        <div class="flex justify-between items-center z-10">
+                            <span class="text-xs font-mono bg-indigo-500/10 text-indigo-400 px-2.5 py-1 rounded-md border border-indigo-500/20">MIDI & Chord Utility</span>
+                            <span class="text-xs text-daw-muted font-mono">v1.0.0</span>
+                        </div>
+                        <div class="z-10 text-center my-auto">
+                            <i class="fa-solid fa-music text-3xl text-indigo-400 mb-2"></i>
+                            <p class="text-xs text-daw-muted font-mono">ImGui Chord Selector & Voicing Tool</p>
+                        </div>
+                        <div class="z-10 flex justify-between text-[10px] text-daw-muted font-mono">
+                            <span>REAPER 7.0+</span>
+                            <span>Lua Bytecode (.luac)</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">ImGui Chord Selector</h3>
+                        <p class="text-sm text-daw-muted leading-relaxed mb-4">
+                            Build, audition, and insert chords and progressions directly inside REAPER with an intuitive visual interface.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 flex items-center justify-between border-t border-daw-border/40 mt-4">
+                    <span class="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">Pay What You Want ($0+)</span>
+                    <a href="#" class="bg-daw-accent hover:bg-daw-hover text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm">
+                        Get Script <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Docs Section -->
+    <section id="docs" class="py-16 px-6 max-w-4xl mx-auto border-t border-daw-border/50">
+        <h2 class="text-2xl font-bold tracking-tight mb-2 text-center">How to Install & Run</h2>
+        <p class="text-sm text-daw-muted text-center mb-10">Simple steps to get your downloaded <code>.luac</code> script running in REAPER.</p>
+        
+        <div class="space-y-4">
+            <div class="bg-daw-card border border-daw-border p-5 rounded-xl flex items-start space-x-4">
+                <div class="w-8 h-8 rounded-lg bg-daw-border flex items-center justify-center font-mono text-sm font-bold shrink-0">1</div>
+                <div>
+                    <h4 class="font-semibold mb-1">Download the Package</h4>
+                    <p class="text-sm text-daw-muted">Grab the <code>.zip</code> file from the checkout page (enter $0 for free or any amount to support development).</p>
+                </div>
+            </div>
+            <div class="bg-daw-card border border-daw-border p-5 rounded-xl flex items-start space-x-4">
+                <div class="w-8 h-8 rounded-lg bg-daw-border flex items-center justify-center font-mono text-sm font-bold shrink-0">2</div>
+                <div>
+                    <h4 class="font-semibold mb-1">Open REAPER Resource Path</h4>
+                    <p class="text-sm text-daw-muted">In REAPER, go to <strong>Options &gt; Show REAPER resource path in explorer/finder</strong>.</p>
+                </div>
+            </div>
+            <div class="bg-daw-card border border-daw-border p-5 rounded-xl flex items-start space-x-4">
+                <div class="w-8 h-8 rounded-lg bg-daw-border flex items-center justify-center font-mono text-sm font-bold shrink-0">3</div>
+                <div>
+                    <h4 class="font-semibold mb-1">Load Into Action List</h4>
+                    <p class="text-sm text-daw-muted">Place the <code>.luac</code> file inside your <code>Scripts/</code> folder, open REAPER's Action List, and click <strong>New action &gt; Load ReaScript</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-daw-border py-8 px-6 text-center text-xs text-daw-muted">
+        <p>&copy; 2026 <strong>Everentips</strong> — Developed by <strong>Sourbotrithy</strong>. Built for REAPER producers worldwide.</p>
+    </footer>
+
+</body>
+</html>
