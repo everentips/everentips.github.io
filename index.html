@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Everentips — REAPER Scripts & Workflow Tools by Sourbotrithy</title>
+    <title>Everentips — REAPER Scripts & Theme</title>
+    <meta name="description" content="Everentips: Chord Engine, Beat Engine, Browser and the Kakada theme for REAPER 7. Free to download — pay what you want to support development.">
+    <meta property="og:title" content="Everentips — REAPER Scripts & Theme">
+    <meta property="og:description" content="Chord Engine, Beat Engine, Browser and the Kakada theme for REAPER 7. Free — pay what you want.">
+    <meta property="og:type" content="website">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -26,13 +30,38 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- =====================================================================
+         YOUR LINKS — edit only these lines.
+         One Lemon Squeezy product per tool: paste each product's checkout link.
+         support: optional separate "Support Everentips" product ('' hides the button)
+         github:  your GitHub profile (the public website repository)
+         ===================================================================== -->
+    <script>
+        const LINKS = {
+            chordEngine: 'https://everentips.lemonsqueezy.com/buy/REPLACE-CHORD-ENGINE-LINK',
+            beatEngine:  'https://everentips.lemonsqueezy.com/buy/REPLACE-BEAT-ENGINE-LINK',
+            browser:     'https://everentips.lemonsqueezy.com/buy/REPLACE-BROWSER-LINK',
+            kakada:      'https://everentips.lemonsqueezy.com/buy/REPLACE-KAKADA-THEME-LINK',
+            support:     '',
+            github:      'https://github.com/Everentips'
+        };
+        const VERSION = '1.0.0';
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] .faq-chevron { transform: rotate(180deg); }
+        code { font-size: 0.85em; background: #2a2a32; padding: 0.1em 0.4em; border-radius: 0.3em; }
+    </style>
 </head>
 <body class="bg-daw-bg text-daw-text font-sans antialiased selection:bg-daw-accent selection:text-white">
 
     <!-- Navigation Header -->
     <header class="border-b border-daw-border bg-daw-bg/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
                 <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-blue-500/20">
                     <i class="fa-solid fa-sliders text-white"></i>
                 </div>
@@ -40,154 +69,323 @@
                     <span class="font-bold text-lg tracking-tight leading-none">Everentips</span>
                     <span class="text-[11px] text-daw-muted tracking-wide mt-0.5">by Sourbotrithy</span>
                 </div>
-            </div>
+            </a>
             <nav class="hidden md:flex items-center space-x-6 text-sm text-daw-muted">
-                <a href="#scripts" class="hover:text-daw-text transition">Scripts</a>
-                <a href="#docs" class="hover:text-daw-text transition">Installation</a>
-                <a href="https://github.com/Everentips" target="_blank" class="hover:text-daw-text transition"><i class="fa-brands fa-github text-base"></i> GitHub</a>
+                <a href="#tools" class="hover:text-daw-text transition">Tools</a>
+                <a href="#install" class="hover:text-daw-text transition">Installation</a>
+                <a href="#faq" class="hover:text-daw-text transition">FAQ</a>
+                <a data-link="github" href="#" target="_blank" rel="noopener" class="hover:text-daw-text transition"><i class="fa-brands fa-github text-base"></i> GitHub</a>
             </nav>
-            <div>
-                <a href="#scripts" class="bg-daw-accent hover:bg-daw-hover text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm transition">
-                    Get Scripts
-                </a>
-            </div>
+            <a href="#tools" class="bg-daw-accent hover:bg-daw-hover text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm transition">
+                Download
+            </a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="py-20 px-6 text-center max-w-4xl mx-auto">
+    <section class="py-16 md:py-20 px-4 sm:px-6 text-center max-w-4xl mx-auto">
         <div class="inline-flex items-center space-x-2 bg-daw-card border border-daw-border px-3.5 py-1.5 rounded-full text-xs text-daw-muted mb-6">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Everentips • Developed by <strong class="text-daw-text font-medium">Sourbotrithy</strong></span>
+            <span>Version <span data-version>1.0.0</span> • Free — pay what you want</span>
         </div>
         <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
             Supercharge Your REAPER Workflow
         </h1>
         <p class="text-lg md:text-xl text-daw-muted mb-10 max-w-2xl mx-auto leading-relaxed">
-            Custom REAPER scripts, ImGui tools, and workflow tips crafted to speed up music production and editing. Free to download with optional support.
+            A chord track, a step sequencer, a sidebar browser and a clean flat theme — built by a producer, for producers. Free to download, with optional support.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#scripts" class="w-full sm:w-auto bg-daw-accent hover:bg-daw-hover text-white font-medium px-8 py-3 rounded-xl shadow-lg shadow-blue-500/20 transition text-center">
-                Explore Scripts
+            <a href="#tools" class="w-full sm:w-auto bg-daw-accent hover:bg-daw-hover text-white font-medium px-8 py-3 rounded-xl shadow-lg shadow-blue-500/20 transition text-center">
+                <i class="fa-solid fa-download mr-1.5"></i> Get the Tools
             </a>
-            <a href="#docs" class="w-full sm:w-auto bg-daw-card hover:bg-daw-border border border-daw-border font-medium px-8 py-3 rounded-xl transition text-center">
-                View Instructions
+            <a href="#install" class="w-full sm:w-auto bg-daw-card hover:bg-daw-border border border-daw-border font-medium px-8 py-3 rounded-xl transition text-center">
+                How to Install
             </a>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-daw-muted">
+            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> REAPER 7+</span>
+            <span><i class="fa-brands fa-apple mr-1"></i> macOS &amp; <i class="fa-brands fa-windows mx-1"></i> Windows</span>
+            <span><i class="fa-solid fa-code mr-1"></i> Plain, readable <code>.lua</code> source</span>
+            <span><i class="fa-solid fa-ban mr-1"></i> No account or license key</span>
         </div>
     </section>
 
-    <!-- Scripts Grid Section -->
-    <section id="scripts" class="py-16 px-6 max-w-6xl mx-auto border-t border-daw-border/50">
-        <div class="flex items-center justify-between mb-10">
-            <div>
-                <h2 class="text-2xl font-bold tracking-tight">Featured Scripts</h2>
-                <p class="text-sm text-daw-muted mt-1">Compiled securely as <code>.luac</code> bytecode for fast, reliable execution in REAPER.</p>
-            </div>
+    <!-- Tools Section -->
+    <section id="tools" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto border-t border-daw-border/50 scroll-mt-16">
+        <div class="mb-10">
+            <h2 class="text-2xl font-bold tracking-tight">The Tools</h2>
+            <p class="text-sm text-daw-muted mt-1">Take only what you need — every tool is its own free download. Pay what you want ($0 is fine).</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Script Card 1 -->
-            <div class="bg-daw-card border border-daw-border rounded-2xl overflow-hidden flex flex-col justify-between hover:border-daw-accent/50 transition duration-300">
-                <div>
-                    <div class="h-48 bg-gradient-to-br from-gray-900 to-gray-950 border-b border-daw-border p-4 flex flex-col justify-between relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition"></div>
-                        <div class="flex justify-between items-center z-10">
-                            <span class="text-xs font-mono bg-blue-500/10 text-blue-400 px-2.5 py-1 rounded-md border border-blue-500/20">ImGui Tool</span>
-                            <span class="text-xs text-daw-muted font-mono">v1.0.0</span>
-                        </div>
-                        <div class="z-10 text-center my-auto">
-                            <i class="fa-solid fa-sliders text-3xl text-daw-accent mb-2"></i>
-                            <p class="text-xs text-daw-muted font-mono">Interactive DAW Workflow Interface</p>
-                        </div>
-                        <div class="z-10 flex justify-between text-[10px] text-daw-muted font-mono">
-                            <span>REAPER 7.0+</span>
-                            <span>Lua Bytecode (.luac)</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Channel Rack & Workflow Panel</h3>
-                        <p class="text-sm text-daw-muted leading-relaxed mb-4">
-                            A streamlined custom ImGui control panel designed to manage tracks, routing, and shortcut triggers rapidly inside REAPER.
-                        </p>
-                    </div>
-                </div>
-                <div class="p-6 pt-0 flex items-center justify-between border-t border-daw-border/40 mt-4">
-                    <span class="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">Pay What You Want ($0+)</span>
-                    <a href="#" class="bg-daw-accent hover:bg-daw-hover text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm">
-                        Get Script <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
-                    </a>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 
-            <!-- Script Card 2 -->
-            <div class="bg-daw-card border border-daw-border rounded-2xl overflow-hidden flex flex-col justify-between hover:border-daw-accent/50 transition duration-300">
-                <div>
-                    <div class="h-48 bg-gradient-to-br from-gray-900 to-gray-950 border-b border-daw-border p-4 flex flex-col justify-between relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-indigo-500/5 opacity-0 group-hover:opacity-100 transition"></div>
-                        <div class="flex justify-between items-center z-10">
-                            <span class="text-xs font-mono bg-indigo-500/10 text-indigo-400 px-2.5 py-1 rounded-md border border-indigo-500/20">MIDI & Chord Utility</span>
-                            <span class="text-xs text-daw-muted font-mono">v1.0.0</span>
-                        </div>
-                        <div class="z-10 text-center my-auto">
-                            <i class="fa-solid fa-music text-3xl text-indigo-400 mb-2"></i>
-                            <p class="text-xs text-daw-muted font-mono">ImGui Chord Selector & Voicing Tool</p>
-                        </div>
-                        <div class="z-10 flex justify-between text-[10px] text-daw-muted font-mono">
-                            <span>REAPER 7.0+</span>
-                            <span>Lua Bytecode (.luac)</span>
-                        </div>
+            <!-- Chord Engine -->
+            <article class="bg-daw-card border border-daw-border rounded-2xl overflow-hidden flex flex-col hover:border-daw-accent/50 transition duration-300">
+                <div class="h-48 bg-gradient-to-br from-gray-900 to-gray-950 border-b border-daw-border p-4 flex flex-col justify-between relative overflow-hidden group">
+                    <!-- screenshot: put images/chord-engine.png next to this page -->
+                    <img src="images/chord-engine.png" alt="Chord Engine in REAPER" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+                    <div class="flex justify-between items-center z-10">
+                        <span class="text-xs font-mono bg-indigo-500/10 text-indigo-300 px-2.5 py-1 rounded-md border border-indigo-500/20 backdrop-blur">Chords &amp; MIDI</span>
+                        <span class="text-xs text-daw-muted font-mono">v<span data-version>1.0.0</span></span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">ImGui Chord Selector</h3>
-                        <p class="text-sm text-daw-muted leading-relaxed mb-4">
-                            Build, audition, and insert chords and progressions directly inside REAPER with an intuitive visual interface.
-                        </p>
+                    <div class="z-10 text-center my-auto icon-fallback">
+                        <i class="fa-solid fa-music text-3xl text-indigo-400 mb-2"></i>
+                        <p class="text-xs text-daw-muted font-mono">Chord lane above your arrange view</p>
                     </div>
+                    <div></div>
                 </div>
-                <div class="p-6 pt-0 flex items-center justify-between border-t border-daw-border/40 mt-4">
-                    <span class="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">Pay What You Want ($0+)</span>
-                    <a href="#" class="bg-daw-accent hover:bg-daw-hover text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm">
-                        Get Script <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                <div class="p-6 flex-1">
+                    <h3 class="text-xl font-bold mb-2">Chord Engine</h3>
+                    <p class="text-sm text-daw-muted leading-relaxed mb-4">
+                        A chord track for REAPER. See, write and hear your song's chords on a lane that follows the timeline.
+                    </p>
+                    <ul class="text-sm text-daw-muted space-y-1.5">
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Chord detection from MIDI <em>and</em> audio</li>
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Chord Sync: MIDI follows your chords (Pattern, Harmony, Bass)</li>
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Chord palette, Chord Monitor and song key</li>
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Tempo detection</li>
+                    </ul>
+                </div>
+                <div class="px-6 py-4 flex items-center justify-between gap-3 border-t border-daw-border/40">
+                    <span class="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">Pay what you want ($0+)</span>
+                    <a data-link="chordEngine" href="#" class="bg-daw-accent hover:bg-daw-hover text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm whitespace-nowrap">
+                        Download <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
                     </a>
                 </div>
-            </div>
+            </article>
+
+            <!-- Beat Engine -->
+            <article class="bg-daw-card border border-daw-border rounded-2xl overflow-hidden flex flex-col hover:border-daw-accent/50 transition duration-300">
+                <div class="h-48 bg-gradient-to-br from-gray-900 to-gray-950 border-b border-daw-border p-4 flex flex-col justify-between relative overflow-hidden group">
+                    <img src="images/beat-engine.png" alt="Beat Engine in REAPER" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+                    <div class="flex justify-between items-center z-10">
+                        <span class="text-xs font-mono bg-orange-500/10 text-orange-300 px-2.5 py-1 rounded-md border border-orange-500/20 backdrop-blur">Drums &amp; Sequencing</span>
+                        <span class="text-xs text-daw-muted font-mono">v<span data-version>1.0.0</span></span>
+                    </div>
+                    <div class="z-10 text-center my-auto icon-fallback">
+                        <i class="fa-solid fa-table-cells text-3xl text-orange-400 mb-2"></i>
+                        <p class="text-xs text-daw-muted font-mono">Step sequencer &amp; drum rack</p>
+                    </div>
+                    <div></div>
+                </div>
+                <div class="p-6 flex-1">
+                    <h3 class="text-xl font-bold mb-2">Beat Engine</h3>
+                    <p class="text-sm text-daw-muted leading-relaxed mb-4">
+                        A fast step sequencer and drum rack for sampler tracks — program beats in patterns, right inside REAPER.
+                    </p>
+                    <ul class="text-sm text-daw-muted space-y-1.5">
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Merge (one kit track) or Split (one track per sound)</li>
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Linked pattern copies: edit once, every copy follows</li>
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Drag samples in from the Browser, Finder/Explorer or Media Explorer</li>
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Swing, per-pad volume, pan, mute and solo</li>
+                    </ul>
+                </div>
+                <div class="px-6 py-4 flex items-center justify-between gap-3 border-t border-daw-border/40">
+                    <span class="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">Pay what you want ($0+)</span>
+                    <a data-link="beatEngine" href="#" class="bg-daw-accent hover:bg-daw-hover text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm whitespace-nowrap">
+                        Download <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Browser -->
+            <article class="bg-daw-card border border-daw-border rounded-2xl overflow-hidden flex flex-col hover:border-daw-accent/50 transition duration-300">
+                <div class="h-48 bg-gradient-to-br from-gray-900 to-gray-950 border-b border-daw-border p-4 flex flex-col justify-between relative overflow-hidden group">
+                    <img src="images/browser.png" alt="Everentips Browser in REAPER" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+                    <div class="flex justify-between items-center z-10">
+                        <span class="text-xs font-mono bg-blue-500/10 text-blue-300 px-2.5 py-1 rounded-md border border-blue-500/20 backdrop-blur">Workflow</span>
+                        <span class="text-xs text-daw-muted font-mono">v<span data-version>1.0.0</span></span>
+                    </div>
+                    <div class="z-10 text-center my-auto icon-fallback">
+                        <i class="fa-solid fa-folder-tree text-3xl text-daw-accent mb-2"></i>
+                        <p class="text-xs text-daw-muted font-mono">Everything in one sidebar</p>
+                    </div>
+                    <div></div>
+                </div>
+                <div class="p-6 flex-1">
+                    <h3 class="text-xl font-bold mb-2">Browser</h3>
+                    <p class="text-sm text-daw-muted leading-relaxed mb-4">
+                        A vertical sidebar for instruments, effects, scripts, samples, MIDI and track templates.
+                    </p>
+                    <ul class="text-sm text-daw-muted space-y-1.5">
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Preview samples in time with your project</li>
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Drag an instrument out to make a new track</li>
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Favorites, recent items and fast search</li>
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Keyboard friendly: arrows to preview, Space to play</li>
+                    </ul>
+                </div>
+                <div class="px-6 py-4 flex items-center justify-between gap-3 border-t border-daw-border/40">
+                    <span class="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">Pay what you want ($0+)</span>
+                    <a data-link="browser" href="#" class="bg-daw-accent hover:bg-daw-hover text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm whitespace-nowrap">
+                        Download <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Kakada theme -->
+            <article class="bg-daw-card border border-daw-border rounded-2xl overflow-hidden flex flex-col hover:border-daw-accent/50 transition duration-300">
+                <div class="h-48 bg-gradient-to-br from-gray-900 to-gray-950 border-b border-daw-border p-4 flex flex-col justify-between relative overflow-hidden group">
+                    <img src="images/kakada.png" alt="Kakada theme for REAPER" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+                    <div class="flex justify-between items-center z-10">
+                        <span class="text-xs font-mono bg-emerald-500/10 text-emerald-300 px-2.5 py-1 rounded-md border border-emerald-500/20 backdrop-blur">Theme</span>
+                        <span class="text-xs text-daw-muted font-mono">v<span data-version>1.0.0</span></span>
+                    </div>
+                    <div class="z-10 text-center my-auto icon-fallback">
+                        <i class="fa-solid fa-palette text-3xl text-emerald-400 mb-2"></i>
+                        <p class="text-xs text-daw-muted font-mono">Flat, dark, easy on the eyes</p>
+                    </div>
+                    <div></div>
+                </div>
+                <div class="p-6 flex-1">
+                    <h3 class="text-xl font-bold mb-2">Kakada Theme</h3>
+                    <p class="text-sm text-daw-muted leading-relaxed mb-4">
+                        A clean, flat dark theme for long sessions, with a full set of redrawn toolbar icons.
+                    </p>
+                    <ul class="text-sm text-daw-muted space-y-1.5">
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Redrawn toolbar icons at 100%, 150% and 200%</li>
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>One-click installer — changes nothing else</li>
+                        <li><i class="fa-solid fa-check text-daw-accent mr-2"></i>Built on REAPER's Default 7 theme</li>
+                    </ul>
+                </div>
+                <div class="px-6 py-4 flex items-center justify-between gap-3 border-t border-daw-border/40">
+                    <span class="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">Pay what you want ($0+)</span>
+                    <a data-link="kakada" href="#" class="bg-daw-accent hover:bg-daw-hover text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm whitespace-nowrap">
+                        Download <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </article>
         </div>
     </section>
 
-    <!-- Installation Docs Section -->
-    <section id="docs" class="py-16 px-6 max-w-4xl mx-auto border-t border-daw-border/50">
-        <h2 class="text-2xl font-bold tracking-tight mb-2 text-center">How to Install & Run</h2>
-        <p class="text-sm text-daw-muted text-center mb-10">Simple steps to get your downloaded <code>.luac</code> script running in REAPER.</p>
-        
-        <div class="space-y-4">
-            <div class="bg-daw-card border border-daw-border p-5 rounded-xl flex items-start space-x-4">
+    <!-- Support Section -->
+    <section id="support" class="py-16 px-4 sm:px-6 max-w-4xl mx-auto border-t border-daw-border/50 scroll-mt-16">
+        <div class="bg-daw-card border border-daw-border rounded-2xl p-6 md:p-10 text-center relative overflow-hidden">
+            <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-emerald-500"></div>
+            <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                <i class="fa-solid fa-heart text-emerald-400 text-xl"></i>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Free, Supported by You</h2>
+            <p class="text-daw-muted mb-6 max-w-xl mx-auto leading-relaxed">
+                Every tool is free: enter $0 at checkout and download. If a tool saves you time, paying what you want funds updates and new tools. Every bit of support is truly appreciated.
+            </p>
+            <a data-link="support" href="#" class="inline-block w-full sm:w-auto bg-daw-accent hover:bg-daw-hover text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-blue-500/20 transition">
+                <i class="fa-solid fa-mug-hot mr-1.5"></i> Support Everentips
+            </a>
+            <p class="text-xs text-daw-muted mt-6">Secure checkout by Lemon Squeezy.</p>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="install" class="py-16 px-4 sm:px-6 max-w-4xl mx-auto border-t border-daw-border/50 scroll-mt-16">
+        <h2 class="text-2xl font-bold tracking-tight mb-2 text-center">How to Install</h2>
+        <p class="text-sm text-daw-muted text-center mb-10">About 5 minutes. Everything you need is free. Each download also has this guide in <code>README - Start Here.txt</code>.</p>
+
+        <div class="bg-daw-card border border-daw-border rounded-xl p-5 mb-6">
+            <h3 class="font-semibold mb-3"><i class="fa-solid fa-list-check text-daw-accent mr-2"></i>Requirements</h3>
+            <div class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-daw-muted">
+                <div><strong class="text-daw-text">REAPER 7</strong> or newer</div>
+                <div><strong class="text-daw-text">ReaPack</strong> — REAPER's package manager</div>
+                <div><strong class="text-daw-text">ReaImGui</strong> 0.9+ — draws the windows (required)</div>
+                <div><strong class="text-daw-text">SWS Extension</strong> — preview, drag &amp; drop (required)</div>
+                <div><strong class="text-daw-text">js_ReaScriptAPI</strong> — drag &amp; drop, alignment (recommended)</div>
+            </div>
+        </div>
+
+        <ol class="space-y-4">
+            <li class="bg-daw-card border border-daw-border p-5 rounded-xl flex items-start space-x-4">
                 <div class="w-8 h-8 rounded-lg bg-daw-border flex items-center justify-center font-mono text-sm font-bold shrink-0">1</div>
                 <div>
-                    <h4 class="font-semibold mb-1">Download the Package</h4>
-                    <p class="text-sm text-daw-muted">Grab the <code>.zip</code> file from the checkout page (enter $0 for free or any amount to support development).</p>
+                    <h4 class="font-semibold mb-1">Install ReaPack and SWS</h4>
+                    <p class="text-sm text-daw-muted leading-relaxed">In REAPER, choose <strong>Options &gt; Show REAPER resource path</strong>. Download ReaPack from <a href="https://reapack.com" target="_blank" rel="noopener" class="text-daw-accent hover:underline">reapack.com</a> and SWS from <a href="https://www.sws-extension.org" target="_blank" rel="noopener" class="text-daw-accent hover:underline">sws-extension.org</a>, put them in the <code>UserPlugins</code> folder there, then restart REAPER.</p>
                 </div>
-            </div>
-            <div class="bg-daw-card border border-daw-border p-5 rounded-xl flex items-start space-x-4">
+            </li>
+            <li class="bg-daw-card border border-daw-border p-5 rounded-xl flex items-start space-x-4">
                 <div class="w-8 h-8 rounded-lg bg-daw-border flex items-center justify-center font-mono text-sm font-bold shrink-0">2</div>
                 <div>
-                    <h4 class="font-semibold mb-1">Open REAPER Resource Path</h4>
-                    <p class="text-sm text-daw-muted">In REAPER, go to <strong>Options &gt; Show REAPER resource path in explorer/finder</strong>.</p>
+                    <h4 class="font-semibold mb-1">Install ReaImGui and js_ReaScriptAPI</h4>
+                    <p class="text-sm text-daw-muted leading-relaxed"><strong>Extensions &gt; ReaPack &gt; Browse packages</strong>. Type <code>imgui</code> and install <strong>"ReaImGui: ReaScript binding for Dear ImGui"</strong> (category API). Then search <code>js_ReaScriptAPI</code> and install it. Click <strong>Apply</strong> and restart REAPER.</p>
+                    <p class="text-xs text-daw-muted mt-2"><i class="fa-solid fa-circle-info mr-1"></i>Tip: it is Rea<strong>I</strong>mGui with a capital <em>i</em> — typing <code>imgui</code> avoids the mix-up.</p>
                 </div>
-            </div>
-            <div class="bg-daw-card border border-daw-border p-5 rounded-xl flex items-start space-x-4">
+            </li>
+            <li class="bg-daw-card border border-daw-border p-5 rounded-xl flex items-start space-x-4">
                 <div class="w-8 h-8 rounded-lg bg-daw-border flex items-center justify-center font-mono text-sm font-bold shrink-0">3</div>
                 <div>
-                    <h4 class="font-semibold mb-1">Load Into Action List</h4>
-                    <p class="text-sm text-daw-muted">Place the <code>.luac</code> file inside your <code>Scripts/</code> folder, open REAPER's Action List, and click <strong>New action &gt; Load ReaScript</strong>.</p>
+                    <h4 class="font-semibold mb-1">Add the scripts</h4>
+                    <p class="text-sm text-daw-muted leading-relaxed">Unzip each download and copy its <code>Scripts/Everentips</code> folder into REAPER's <code>Scripts</code> folder — several tools simply share one <code>Everentips</code> folder. Open the <strong>Action List &gt; New action &gt; Load ReaScript</strong> and load the tool (for example <code>Everentips - Chord Engine.lua</code>). Give it a shortcut or toolbar button.</p>
+                    <p class="text-xs text-daw-muted mt-2"><i class="fa-solid fa-circle-info mr-1"></i>No need to load the Beat Engine Linker — Beat Engine sets it up by itself.</p>
                 </div>
-            </div>
+            </li>
+            <li class="bg-daw-card border border-daw-border p-5 rounded-xl flex items-start space-x-4">
+                <div class="w-8 h-8 rounded-lg bg-daw-border flex items-center justify-center font-mono text-sm font-bold shrink-0">4</div>
+                <div>
+                    <h4 class="font-semibold mb-1">Install the Kakada theme <span class="text-xs font-normal text-daw-muted">(optional)</span></h4>
+                    <p class="text-sm text-daw-muted leading-relaxed">Unzip the Kakada download, then load and run <code>Install Kakada.lua</code> the same way and restart REAPER. It installs the theme and its toolbar icons — nothing else changes.</p>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 px-4 sm:px-6 max-w-4xl mx-auto border-t border-daw-border/50 scroll-mt-16">
+        <h2 class="text-2xl font-bold tracking-tight mb-8 text-center">FAQ</h2>
+        <div class="space-y-3">
+            <details class="bg-daw-card border border-daw-border rounded-xl p-5">
+                <summary class="flex justify-between items-center font-semibold">Is it really free?<i class="fa-solid fa-chevron-down faq-chevron text-xs text-daw-muted transition"></i></summary>
+                <p class="text-sm text-daw-muted mt-3 leading-relaxed">Yes. Enter $0 at checkout and download. If the tools save you time, paying what you want helps fund updates and new tools.</p>
+            </details>
+            <details class="bg-daw-card border border-daw-border rounded-xl p-5">
+                <summary class="flex justify-between items-center font-semibold">Is it safe to run?<i class="fa-solid fa-chevron-down faq-chevron text-xs text-daw-muted transition"></i></summary>
+                <p class="text-sm text-daw-muted mt-3 leading-relaxed">The scripts are plain, readable <code>.lua</code> files — nothing is hidden or compiled, so you (or anyone) can check exactly what they do. They only work inside your REAPER projects.</p>
+            </details>
+            <details class="bg-daw-card border border-daw-border rounded-xl p-5">
+                <summary class="flex justify-between items-center font-semibold">Does it work on Mac and Windows?<i class="fa-solid fa-chevron-down faq-chevron text-xs text-daw-muted transition"></i></summary>
+                <p class="text-sm text-daw-muted mt-3 leading-relaxed">The tools are built for REAPER 7 and use cross-platform extensions (ReaImGui, SWS, js_ReaScriptAPI). They are developed and tested on macOS; please report anything that behaves differently on Windows.</p>
+            </details>
+            <details class="bg-daw-card border border-daw-border rounded-xl p-5">
+                <summary class="flex justify-between items-center font-semibold">A script says ReaImGui is missing — what now?<i class="fa-solid fa-chevron-down faq-chevron text-xs text-daw-muted transition"></i></summary>
+                <p class="text-sm text-daw-muted mt-3 leading-relaxed">Open <strong>Extensions &gt; ReaPack &gt; Browse packages</strong>, type <code>imgui</code>, right-click <strong>"ReaImGui: ReaScript binding for Dear ImGui"</strong> and choose <strong>Install</strong> (or <strong>Reinstall</strong> if it is already there). Click Apply and restart REAPER.</p>
+            </details>
+            <details class="bg-daw-card border border-daw-border rounded-xl p-5">
+                <summary class="flex justify-between items-center font-semibold">Can I use it in commercial music?<i class="fa-solid fa-chevron-down faq-chevron text-xs text-daw-muted transition"></i></summary>
+                <p class="text-sm text-daw-muted mt-3 leading-relaxed">Yes. Use the tools for any music, personal or commercial — no credit needed. What you may not do is re-share, re-upload or sell the scripts; please link people to this page instead.</p>
+            </details>
+            <details class="bg-daw-card border border-daw-border rounded-xl p-5">
+                <summary class="flex justify-between items-center font-semibold">How do I get updates?<i class="fa-solid fa-chevron-down faq-chevron text-xs text-daw-muted transition"></i></summary>
+                <p class="text-sm text-daw-muted mt-3 leading-relaxed">New versions are posted here. Download again with the same link and replace the files in your <code>Scripts/Everentips</code> folder — your settings are kept.</p>
+            </details>
         </div>
+    </section>
+
+    <!-- License Section -->
+    <section id="license" class="py-12 px-4 sm:px-6 max-w-4xl mx-auto border-t border-daw-border/50 scroll-mt-16">
+        <h2 class="text-lg font-bold tracking-tight mb-3">License</h2>
+        <p class="text-sm text-daw-muted leading-relaxed">
+            The scripts are &copy; 2026 Everentips (Sourbotrithy). All rights reserved. They are free to use in your music, personal and commercial; redistribution, resale or re-uploading is prohibited. Full terms are in <code>LICENSE.txt</code> in the download.
+            The Kakada theme is based on the REAPER Default 7 theme &copy; Cockos Inc and is shared under the
+            <a href="http://www.gnu.org/licenses/lgpl.html" target="_blank" rel="noopener" class="text-daw-accent hover:underline">GNU LGPL v2 or later</a>.
+        </p>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-daw-border py-8 px-6 text-center text-xs text-daw-muted">
-        <p>&copy; 2026 <strong>Everentips</strong> — Developed by <strong>Sourbotrithy</strong>. Built for REAPER producers worldwide.</p>
+    <footer class="border-t border-daw-border py-8 px-4 sm:px-6 text-center text-xs text-daw-muted space-y-2">
+        <p>&copy; 2026 <strong>Everentips</strong> — Developed by <strong>Sourbotrithy</strong>. Made in Cambodia for REAPER producers worldwide.</p>
+        <p>REAPER is a trademark of Cockos Inc. Everentips is an independent project, not affiliated with Cockos.</p>
     </footer>
 
+    <script>
+        // apply the links and version from the block at the top
+        document.querySelectorAll('[data-link]').forEach(function (a) {
+            var url = LINKS[a.getAttribute('data-link')];
+            if (!url) { a.remove(); return; }
+            a.href = url;
+            if (url.indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener'; }
+        });
+        document.querySelectorAll('[data-version]').forEach(function (s) { s.textContent = VERSION; });
+        // a screenshot replaces the icon placeholder of its card
+        document.querySelectorAll('article img').forEach(function (img) {
+            function hide() { var f = img.parentNode.querySelector('.icon-fallback'); if (f) f.style.visibility = 'hidden'; }
+            if (img.complete && img.naturalWidth) hide(); else img.addEventListener('load', hide);
+        });
+    </script>
 </body>
 </html>
